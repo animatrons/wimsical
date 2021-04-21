@@ -7,3 +7,5 @@ npm install express cookie-parser --save (needed for backend)
 npm install pg --save (node js client for postgres)
 npm install body-parser --save (http interactions between front end and back end)
 
+node server/index.js (to start the server)
+(added script "nodemon server" to "server") npm run server
