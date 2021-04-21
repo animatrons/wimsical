@@ -1,0 +1,9 @@
+git clone "githublink"
+npm init (to init our project, creates a json config package file)
+
+npm install create-react-app (react package)
+npm install concurrently nodemon --save-dev (dev dependencies, local only for test and preview, nodemon: a backend tool that will keep the server running for developement even if we made a change to index.js the server will still run)
+npm install express cookie-parser --save (needed for backend)
+npm install pg --save (node js client for postgres)
+npm install body-parser --save (http interactions between front end and back end)
+
