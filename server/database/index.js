@@ -1,6 +1,6 @@
 var { Pool } = require('pg'); //*postgres client pg, this will be the interface we'll be using to interact with a pg instance installed on our srver wether local or deployed
 
-const CONNECTION_STRING = process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/wim-db'; //* when we deploy the app to heroku it will set the DATABASE_URL to connect to a satabase that's running on their env
+const CONNECTION_STRING = process.env.DATABASE_URL || 'postgresql://postgres:0000@localhost:5432/wim-db'; //* when we deploy the app to heroku it will set the DATABASE_URL to connect to a satabase that's running on their env
 const SSL = process.env.NODE_ENV === 'production' //* ssl will be set to node_env if the envirenement we're in is the production
 
 class Database {
@@ -8,6 +8,7 @@ class Database {
         this._pool = new Pool({
             connectionString: CONNECTION_STRING,
             ssl: SSL
+            
         })
 
         this._pool.on('error', (err, client) => {
@@ -16,7 +17,7 @@ class Database {
         });
     }
 
-    query () {
+    query (query, ...args) {
         this._pool.connect((err, client, done) => {
             if (err) throw err;
             const params = args.length === 2 ? args[0] : [];
