@@ -1,38 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  text-align: center;
+  
+  /* background-color: #070c16;
+  background-image: linear-gradient(190deg,#461212 10%,#251010 30%,#070c16); */
+  background: rgb(255,0,176);
+background: linear-gradient(185deg, rgba(255,0,176,1) 0%, rgba(37,9,121,1) 21%, rgba(7,12,22,1) 58%);
+}
+
+.all-container {
+  padding-top: 29px;
+  min-height: 100%;
+  min-width: 100%;
+  position: relative;
+  z-index: 10;
+  
+}
+.app-header{
+  position: absolute;
+  top: 0;
+  padding-top: 80px;
+  width: 100%;
+  max-height: 200px;
+  font-family: 'Fredoka One', cursive;
+  text-decoration:overline;
+  color: aliceblue;
+  font-size: 5rem;
+}
+
+@media screen and (max-width: 1660px) {
+  .all-container {
+  padding-top: 3%;
+  min-height: 100%;
+  min-width: 100%;
+  position: relative;
+  z-index: 10;
+}
+.app-header{
+  position: absolute;
+  top: 0;
+  padding-top: 4%;
+  width: 100%;
+  max-height: 200px;
+  font-family: 'Fredoka One', cursive;
+  color: aliceblue;
+  text-decoration:overline;
+  letter-spacing: 10px;
+  font-size: 3rem;
+}
+.container-small{
+  padding-top: 100px;
+  margin: 10vw;
+  /* margin-top: 10vh; */
+  padding: 10vw;
+  padding-bottom: 400px;
+  margin-bottom: 0;
+  border: 1px solid snow;
+  border-radius: 10px;
+  display: grid;
+  place-content: center;
+  background-color: rgb(24, 15, 44) ;
+}
+.form {
+  border: 1px solid snow;
+  border-radius: 10px;
+  display: grid;
+  background-color: rgb(37, 13, 88) ;
+  height: 350px;
+  
+  /* margin: 10vw; */
+  color: aliceblue;
+  position: relative;
+}
+.form .title {
+  padding-top:12%;
+  font-size: 30px;
+}
+}
+@media screen and (max-width: 700px) {
+  .all-container {
+  padding-top: 8%;
+  min-height: 100%;
+  min-width: 100%;
+  position: relative;
+  z-index: 10;
+}
+.app-header{
+  position: absolute;
+  top: 0;
+  padding-top: 4%;
+  width: 100%;
+  max-height: 200px;
+  font-family: 'Fredoka One', cursive;
+  color: aliceblue;
+  font-size: 30px;
+}
+.container-small{
+  padding-top: 100px;
+  margin: 10vw;
+  margin-top: 10vh;
+  padding: 5vw;
+  padding-bottom: 400px;
+  margin-bottom: 0;
+  border: 1px solid snow;
+  border-radius: 10px;
+  display: grid;
+  place-content: center;
+  background-color: rgb(24, 15, 44) ;
+}
+.form .title {
+  padding-top:12%;
+  font-size: 25px;
+}
+}
+
+.container-small{
+  padding-top: 100px;
+  margin: 10vw;
+  padding: 10vw;
+  padding-bottom: 200px;
+  margin-bottom: 0;
+  border: 1px solid snow;
+  border-radius: 10px;
+  display: grid;
+  place-content: center;
+  background-color: rgb(24, 15, 44) ;
+}
+
+.form {
+  border: 1px solid snow;
+  border-radius: 10px;
+  
+  background-color: rgb(37, 13, 88) ;
+  height: 350px;
+  width: 400px;
+  color: aliceblue;
+  position: relative;
+  
+}
+.lnk {
+  text-decoration: none;
+  font-family: 'Fredoka One', cursive;
+}
+.inner-form {
+  display: grid;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100%;
+}
+.inner-form .title {
+  grid-column: 1 / span 2;
+  padding-top: 10px;
+}
+.inner-form .response {
+  grid-column: 1 / span 2;
+  border: aliceblue 1px dashed;
+  border-radius: 10px;
+  padding: 2em 2em;
+  margin: auto 1em;
+  /* overflow-x: scroll; */
+}
+.response-success{
+  color: green;
+  border: green 1px dashed;
+}
+.response-fail{
+  color: red;
+  border: red 1px dashed;
+}
+.response-normal{
+  grid-column: 1 / span 2;
+  color: gray;
+  border: gray 1px dashed;
+}
+.form .textarea{
+  padding-right: 20px;
+  margin-left: 5%;
+  border-radius: 10px;
+}
+.form .title {
+  padding-top:12%;
+}
+.form .tabs {
+  padding-top: 5%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  height: 50px;
+  justify-content: space-around;
+  justify-items: center;
+
+}
+.post{
+  display: inline-block;
+  justify-self: center;
+}
+#t1{
+  border-right: 1px solid snow;
+  min-height: 100%;
+  width: 50%;
+
+}
+#t2{
+
+  height: 100%;
+  width: 50%;
+
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  height: 200px;
+  background: rgb(51,51,51);
+background: linear-gradient(180deg, rgba(51,51,51,0) 28%, rgb(0, 0, 0) 86%);
+color: gray;
+padding-top: 100px;
+text-decoration:overline;
 }
