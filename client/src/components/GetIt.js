@@ -1,41 +1,58 @@
-
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 import { useState, useEffect } from 'react';
+import { useForm } from '../hooks/useForm';
+import Response from './Response';
+import { useGetFetch } from '../hooks/useGetFetch';
 
 function GetIt() {
-    const [resRes, setRes] = useState('');
-    useEffect(() => {
-        if (resRes === '') {
-            document.getElementById('res').classList.remove('response-success');
-            document.getElementById('res').classList.remove('response-fail');
-            document.getElementById('res').classList.add('response-normal');
+    const [buttonState, setButtonState] = useState(false);
+    const [inputValue, handleChange] = useForm({inputText: ''});
+    const [clicked, setClicked] = useState(false);
+    const [postKey, setPostKey] = useState('');
+
+    const {data, loading, err} = useGetFetch(postKey);
+
+    const btn_locked =  <button className="post-locked">Post</button>;
+    const btn_unlocked =  
+                        <button 
+                            className="post"
+                            onClick={()=>{setPostKey(inputValue.inputText.toUpperCase()); setClicked(true);}}>
+                            Post
+                        </button>;
+
+    useEffect(()=>{
+        if(inputValue.inputText.replace(/\s/g,'') !== '' & inputValue.inputText.length === 5)
+            setButtonState(true);
+        else {
+            setButtonState(false);
+            setClicked(false);
+            setPostKey('');
         }
-        else if (resRes === true) {
-            document.getElementById('res').classList.remove('response-fail');
-            document.getElementById('res').classList.remove('response-normal');
-            document.getElementById('res').classList.add('response-success');
-        }
-        else if (resRes === false) {
-            document.getElementById('res').classList.remove('response-success');
-            document.getElementById('res').classList.remove('response-normal');
-            document.getElementById('res').classList.add('response-fail');
-        }
-    }, [resRes]);
+    }, [inputValue.inputText]);
+
     return (
         <div className="inner-form">
-            <h2 className="title">Post some text</h2>
+            <h2 className="title">{loading ? 'Use a valid 🔑 to get a post':(err ? 'Something went wrong 🤮':'💪💯 You got it 💪💯')}</h2>
+            
+            <input 
+                type="text" 
+                placeholder="XXXXX (caps or no caps)" 
+                className="textarea get"
+                value={inputValue.inputText}
+                onChange={handleChange}/>
 
-            <textarea className="textarea"></textarea>
-            <button className="post">Post</button>
+            {buttonState ? btn_unlocked:btn_locked}
 
-            <SimpleBar id="res" forceVisible="y" autoHide={false} className="response" >
-                <div  >
-                    response
-                </div>
-            </SimpleBar>
+            {/* {(clicked & buttonState) ? (loading ? <Response class='response-normal' result='loading...'/> : <Response class='response-success-get' result={data}/>) : <Response class='response-normal' result='response'/>} */}
+
+            {(clicked & buttonState) ? 
+                (loading ? 
+                    <Response class='response-normal' result='loading...'/> : (err ? <Response class='response-fail' result='Wrong key or delay expired.'/>:<Response class='response-success-get' result={data}/>)) : <Response class='response-normal' result='response'/>}
+
         </div>
     )
 }
 
 export default GetIt;
+

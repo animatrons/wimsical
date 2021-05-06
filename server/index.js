@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json()); 
 
 
-app.use('/', require('./api/data')); //*regestering the api middleware
+app.use('/api/data', require('./api/data')); //*regestering the api middleware
 
 
 

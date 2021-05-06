@@ -1,6 +1,6 @@
 import './App.css'; 
-import GetIt from './components/GetIt'
 import PostIt from './components/PostIt'
+import GetIt from './components/GetIt'
 import {
   BrowserRouter as Router,
   Link,
@@ -20,7 +20,7 @@ function App() {
     <Router>
     <div className="App">
       <div className="all-container">
-        <h1 className="app-header"><span className="logo">WIM</span></h1>
+        <h1 className="app-header"><span className="logo">W.I.M</span></h1>
         <div className="container-small">
           <div class="form">
             <div className="tabs">
