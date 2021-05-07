@@ -9,9 +9,9 @@ class Database {
             connectionString: CONNECTION_STRING,
             // ssl: SSL,
             ssl: { 
-                rejectUnauthorized: true, 
+                rejectUnauthorized: false, 
                 // ca: SSL 
-                ca: process.env.CA_CERT
+                // ca: process.env.CA_CERT
             },
             logging: false
         })
