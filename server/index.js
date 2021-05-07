@@ -21,9 +21,9 @@ if (ENV === 'production'){
     });
 }
 
-const apiRouter = require('./api/data');
 
-app.use(apiRouter); //*regestering the api middleware
+
+app.use('/api/data', require('./api/data')); //*regestering the api middleware
 
 
 //*make express responsive to requests
