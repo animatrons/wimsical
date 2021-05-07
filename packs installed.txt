@@ -9,3 +9,10 @@ npm install body-parser --save (http interactions between front end and back end
 
 node server/index.js (to start the server)
 (added script "nodemon server" to "server") npm run server
+
+scripts added to the main json:
+"dev": "concurrently \"npm run server\" \"npm run client\"", to run both the server and client
+"client": "npm start --prefix client", 
+
+"start": "node server", called by heroku when the server needs to start
+"heroku-postbuild": "cd client && npm install && npm run build" called after heroku builds the app, its gointo change to the client folder where all the reactfiles are found, and then it will install the npm dependecies, and then after that 'npm run build' a react script that will convert the app to static web files this how the app is built

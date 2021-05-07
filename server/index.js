@@ -11,14 +11,17 @@ const ENV = process.env.NODE_ENV; //* info about if the env we're working in is 
 const PORT = process.env.PORT || 5000;//* witch port the express server will be running on
 
 const app = express();
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json()); 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json()); 
 
+if (ENV === 'production'){
+    app.use(express.static(path.join(__dirname, '../client/build'))); //*server the static react filels through the express app if it is i production env
+    app.use((req, res)=>{
+        res.sendFile(path.join(__dirname, '..client/build/index.html'));
+    });
+}
 
 app.use('/api/data', require('./api/data')); //*regestering the api middleware
-
 
 
 //*make express responsive to requests
