@@ -16,3 +16,14 @@ scripts added to the main json:
 
 "start": "node server", called by heroku when the server needs to start
 "heroku-postbuild": "cd client && npm install && npm run build" called after heroku builds the app, its gointo change to the client folder where all the reactfiles are found, and then it will install the npm dependecies, and then after that 'npm run build' a react script that will convert the app to static web files this how the app is built
+
+Deployment through the heroku cli:
+
+heroku login
+heroku create app-name //creating new app
+heroku addons:create heroku-postgresql:hobby-dev --name=database-nam //adding a postgres addon with the hobby-dev option for free deployment and naming the database
+heroku addons:attach database-name --app=app-nam //attaching the postgres addon database to the app
+heroku pg:psql -app app-name //* connecting to the database-name, this will open a pgsql command line env for managing the bd creating tables etc, exit with \q
+git push herkou main //* pushes and builds the app from the git repo, this can be run each time the code has been changed to update the app, and the lates version will be transfered and built
+heroku ps:scale web=1 // start the app: dynos for running a free instance just the 1 level web1
+heroku open // launch the browser with the url where the app is running 
