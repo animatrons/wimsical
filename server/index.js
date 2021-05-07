@@ -16,6 +16,7 @@ app.use(express.json());
 
 if (ENV === 'production'){
     app.use(express.static(path.join(__dirname, '../client/build'))); //*serve the static react file through the express app if it is i production env
+    // console.log(`this is amistake`);
     app.use((req, res)=>{
         res.sendFile(path.join(__dirname, '..client/build/index.html'));
     });
