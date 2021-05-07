@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
     var txt = req.body.text;
     data.postIt(txt)
         .then(ret_key => { return res.send(ret_key)})
-        .catch(err => {return res.json('some error' + err)});
+        .catch(err => {return new Error(console.log(err))});
 });
 router.get('/:key', (req, res) => {
     // console.log('this the router get')

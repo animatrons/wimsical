@@ -13,7 +13,7 @@ function PostIt() {
     const [toBePosted, setToBePosted] = useState('');
     const [postSuccess, setPostSuccess] = useState(false);
 
-    var {data, loading} = usePostFetch(toBePosted);
+    var {data, loading, err} = usePostFetch(toBePosted);
 
     const btn_locked =  <button className="post-locked">Post</button>;
     const btn_unlocked =  
@@ -35,7 +35,7 @@ function PostIt() {
 
     return (
         <div className="inner-form">
-            <h2 className="title">{loading ? 'Upload some text 📋':'Your text is safe in the next 5min, get it using the code bellow, hurry ⏲️.'}</h2>
+            <h2 className="title">{loading ? 'Upload some text 📋':(err ? 'Something went wrong 🤮':'Your text is safe for the next 5min, get it using the key bellow, hurry ⏲️.')}</h2>
 
             <textarea 
                 placeholder="Your text." 
@@ -47,7 +47,9 @@ function PostIt() {
 
             
                 
-            {(clicked & buttonState) ? (loading ? <Response class='response-normal' result='loading...'/> : <Response class='response-success' result={data}/>) : <Response class='response-normal' result='response'/>}
+            {(clicked & buttonState) ? 
+                (loading ? 
+                    <Response class='response-normal' result='loading...'/> : (err ? <Response class='response-fail' result='Something went really wrong.'/>:<Response class='response-success' result={data}/>)) : <Response class='response-normal' result='response'/>}
                 
             
         </div>

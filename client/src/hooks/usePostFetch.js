@@ -1,11 +1,11 @@
 import {useState, useEffect, useRef} from 'react';
 
 export const usePostFetch = (txt) => {
-    const [state, setState] = useState({data: null, loading: true});
+    const [state, setState] = useState({data: null, loading: true, err: false});
     const empty = useRef(false);
 
     useEffect(()=>{
-        setState({data: null, loading: true});
+        setState({data: null, loading: true, err: false});
 
         if (txt.replace(/\s/g,'') === '') {empty.current = true;return ;}
         
@@ -16,7 +16,11 @@ export const usePostFetch = (txt) => {
         })
         .then(res => res.text())
         .then(res =>
-            setState({data: res, loading: false}))
+            setState({data: res, loading: false, err: false}))
+        .catch(err =>{
+            setState({data: null, loading: false, err: true});
+            console.log(err);
+        })
 
     }, [txt]);
 

@@ -13,12 +13,12 @@ function GetIt() {
 
     const {data, loading, err} = useGetFetch(postKey);
 
-    const btn_locked =  <button className="post-locked">Post</button>;
+    const btn_locked =  <button className="post-locked">Get</button>;
     const btn_unlocked =  
                         <button 
                             className="post"
                             onClick={()=>{setPostKey(inputValue.inputText.toUpperCase()); setClicked(true);}}>
-                            Post
+                            Get
                         </button>;
 
     useEffect(()=>{
@@ -37,7 +37,7 @@ function GetIt() {
             
             <input 
                 type="text" 
-                placeholder="XXXXX (caps or no caps)" 
+                placeholder="caps or no caps" 
                 className="textarea get"
                 value={inputValue.inputText}
                 onChange={handleChange}/>

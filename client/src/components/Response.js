@@ -4,11 +4,10 @@ import { useState, useEffect } from 'react';
 
 function Response(props) {
     return (
-        <SimpleBar id="res" forceVisible="y" autoHide={false} className={props.class} >
-            <div>
-                {props.result}
-                <span style={{visibility:'hidden'}}>{props.code}</span>
-            </div>
+        <SimpleBar id="res" forceVisible="x" autoHide={false} className={props.class} >
+                {/* <div className="result"> */}
+                    {props.result}
+                {/* </div> */}
         </SimpleBar>
     )
 }
