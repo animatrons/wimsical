@@ -15,13 +15,13 @@ var router = express.Router();
 //         .then(ret_key => { return res.send(ret_key)})
 //         .catch(err => {return res.send('some error' + err)});
 // });
-router.post('/', (req, res) => {
+router.post('/api/data', (req, res) => {
     var txt = req.body.text;
     data.postIt(txt)
         .then(ret_key => { return res.send(ret_key)})
         .catch(err => {return new Error(console.log(err))});
 });
-router.get('/:key', (req, res) => {
+router.get('/api/data/:key', (req, res) => {
     // console.log('this the router get')
     var key = req.params.key;
 

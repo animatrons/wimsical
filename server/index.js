@@ -15,13 +15,15 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json()); 
 
 if (ENV === 'production'){
-    app.use(express.static(path.join(__dirname, '../client/build'))); //*server the static react filels through the express app if it is i production env
+    app.use(express.static(path.join(__dirname, '../client/build'))); //*serve the static react file through the express app if it is i production env
     app.use((req, res)=>{
         res.sendFile(path.join(__dirname, '..client/build/index.html'));
     });
 }
 
-app.use('/api/data', require('./api/data')); //*regestering the api middleware
+const apiRouter = require('./api/data');
+
+app.use(apiRouter); //*regestering the api middleware
 
 
 //*make express responsive to requests
