@@ -7,12 +7,11 @@ class Database {
     constructor () {
         this._pool = new Pool({
             connectionString: CONNECTION_STRING,
-            // ssl: SSL,
-            ssl: { 
-                rejectUnauthorized: false, 
-                // ca: SSL 
-                // ca: process.env.CA_CERT
-            },
+            ssl: SSL,
+            // ssl: { 
+            //     rejectUnauthorized: false, 
+            //     ca: process.env.CA_CERT
+            // },
             logging: false
         })
 

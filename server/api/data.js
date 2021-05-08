@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
     var txt = req.body.text;
     data.postIt(txt)
         .then(ret_key => { return res.send(ret_key)})
-        .catch(err => {return new Error(console.log(err))});
+        .catch(err => {Error(console.log('some error: ' + err.error));return res.send('Oooops');});
 });
 
 router.get('/:key', (req, res) => {

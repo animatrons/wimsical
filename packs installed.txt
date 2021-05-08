@@ -27,3 +27,6 @@ heroku pg:psql --app app-name //* connecting to the database-name, this will ope
 git push herkou main //* pushes and builds the app from the git repo, this can be run each time the code has been changed to update the app, and the lates version will be transfered and built
 heroku ps:scale web=1 // start the app: dynos for running a free instance just the 1 level web1
 heroku open // launch the browser with the url where the app is running 
+heroku git:remote -a app-name // changing the rmote
+
+Here is me posting again for the sake of testing posting large text and receiving it back just to check the  way it is displayed in the response box, while the app seems to be running nicely for now you never know when's next error or bug gonna hit.

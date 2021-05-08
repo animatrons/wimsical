@@ -15,11 +15,20 @@ export const usePostFetch = (txt) => {
             body: JSON.stringify({text: txt})
         })
         .then(res => res.text())
-        .then(res =>
-            setState({data: res, loading: false, err: false}))
-        .catch(err =>{
+        .then(res => {
+            if(res !== 'Oooops')    {
+                setState({data: res, loading: false, err: false});
+                console.log('fetch post: posting success'+res);
+                }
+            else {
+                setState({data: null, loading: false, err: true});
+                console.log('fetch post: posting error occured'+res);
+                }
+            })
+        .catch(error =>{
+            console.log('fetch api error occured'+error);
             setState({data: null, loading: false, err: true});
-            console.log(err);
+            console.log(error);
         })
 
     }, [txt]);
