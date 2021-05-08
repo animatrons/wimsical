@@ -1,4 +1,6 @@
 import ReactDOM from 'react-dom'
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import './App.css'; 
@@ -23,6 +25,7 @@ function App() {
   const [postTabSelected, setPostTabSelected] = useState(true);
   return (
     <Router>
+      <SimpleBar id="appScrol" forceVisible="y" autoHide={false} >
     <div className="App">
       <div className="all-container">
         <h1 className="app-header"><span className="logo">W.I.M</span><span className="lead">WIM postal service! Send and recieve data from all your devices, share it with friends, in under ONE seconds, no account required!</span></h1>
@@ -34,7 +37,7 @@ function App() {
                   className="lnk"
                   to='/' 
                   onClick={()=>setPostTabSelected(true)}
-                  style={postTabSelected ? {color: "skyblue", textDecoration:"underline"}:{color: "white",textDecoration:"none"}}>
+                  style={postTabSelected ? {color: "rgb(45, 167, 216)",textDecoration: "underline", borderBottom: "1px rgb(45, 167, 216) solid"}:{color: "white",textDecoration: "none",borderBottom: "1px rgba(0,0,0,0) solid"}}>
                     Post
                 </Link>
               </span>
@@ -43,7 +46,7 @@ function App() {
                   className="lnk"
                   to='/get'
                   onClick={()=>setPostTabSelected(false)}
-                  style={!postTabSelected ? {color: "skyblue", textDecoration:"underline"}:{color: "white",textDecoration:"none"}}>
+                  style={!postTabSelected ? {color: "rgb(45, 167, 216)",textDecoration: "underline", borderBottom: "1px rgb(45, 167, 216) solid"}:{color: "white",textDecoration: "none",borderBottom: "1px rgba(0,0,0,0) solid"}}>
                    Get
                 </Link>
               </span>
@@ -60,6 +63,7 @@ function App() {
       
       <footer className="app-footer"> <span>WIM &copy; 2021. &nbsp;<a href="https://github.com/animatrons/wimsical"><FontAwesomeIcon icon={faGithub} style={{color: 'gray'}}/></a> </span> </footer>
     </div>
+    </SimpleBar>
     </Router>
   );
 }

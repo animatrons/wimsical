@@ -150,7 +150,7 @@
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 747px) {
     .all-container {
         padding-top: 8%;
         min-height: 100%;
@@ -168,7 +168,7 @@
         max-height: 200px;
         font-family: 'Dela Gothic One', cursive;
         color: rgb(0, 77, 144);
-        font-size: 2.25em;
+        font-size: 2.55em;
         display: grid;
         letter-spacing: 0;
         grid-template-columns: 2fr 6fr;
@@ -217,7 +217,74 @@
     place-content: center;
     background-color: rgb(24, 15, 44);
 }
+@media screen and (max-width: 500px){
+    .app-header {
+        position: absolute;
+        top: 0;
+        padding-top: 1%;
+        text-align: left;
+        width: auto;
+        margin: 0 10vw;
+        max-height: 200px;
+        font-family: 'Dela Gothic One', cursive;
+        color: rgb(0, 77, 144);
+        font-size: 2.55em;
+        display: grid;
+        letter-spacing: 0;
+        grid-template-columns: 2fr 6fr;
+        align-items: center;
+    }
+    .app-header .lead{
+        width: 100%;
+        font-size: 0.15em;
+    }
+    .lnk {
+        font-size: 0.8em;
+    }
+}
+@media screen and (max-width: 330px){
+    .all-container {
+        padding-top: 8%;
+        min-height: 100%;
+        min-width: 100%;
+        position: relative;
+        z-index: 1;
+    }
+    .app-header {
+        position: absolute;
+        top: 0;
+        padding-top: 1%;
+        text-align: left;
+        width: auto;
+        margin: 0 10vw;
+        max-height: 200px;
+        font-family: 'Dela Gothic One', cursive;
+        color: rgb(0, 77, 144);
+        font-size: 2.55em;
+        display: grid;
+        letter-spacing: 0;
+        grid-template-columns: 2fr 6fr;
+        align-items: center;
+    }
+    .app-header .lead{
+        width: 100%;
+        font-size: 0.12em;
+    }
+    .form {
+        border: 1px solid gray;
+        border-radius: 10px;
+        background-color: rgb(37, 13, 88);
+        max-height: 350px;
+        width: 200px;
+        color: aliceblue;
+        position: relative;
+    }
+    
+    .lnk {
+        font-size: 0.7em;
+    }
 
+}
 @media screen and (min-width: 1660px) {
     .form {
         border: 1px solid gray;
@@ -354,6 +421,7 @@
     padding-bottom: 1em;
     min-height: 100%;
     width: 50%;
+
 }
 
 #t2 {
@@ -363,11 +431,11 @@
 }
 
 #t2:hover{
-    color: skyblue;
+    color: rgb(45, 167, 216);;
     text-decoration: underline;
 }
 #t1:hover{
-    color: skyblue;
+    color: rgb(45, 167, 216);
     text-decoration: underline;
 }
 .app-footer {
@@ -377,7 +445,10 @@
     z-index: 50;
     height: 280px;
     background: rgb(51, 51, 51);
-    background: linear-gradient(180deg, rgba(51, 51, 51, 0) 28%, rgb(0, 0, 0) 86%);
+    background: linear-gradient(180deg, rgba(51, 51, 51, 0) 20%, rgb(0, 0, 0) 80%);
     color: gray;
     padding-top: 200px;
+}
+#appScrol{
+    overflow-y: scroll;
 }
