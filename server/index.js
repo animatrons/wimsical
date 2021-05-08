@@ -14,6 +14,8 @@ const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json()); 
 
+app.use('/api/data', require('./api/data')); //*regestering the api middleware
+
 if (ENV === 'production'){
     app.use(express.static(path.join(__dirname, '../client/build'))); //*serve the static react file through the express app if it is i production env
     // console.log(`this is amistake`);
@@ -21,11 +23,6 @@ if (ENV === 'production'){
         res.sendFile(path.join(__dirname, '../client/build/index.html'));
     });
 }
-
-
-
-app.use('/api/data', require('./api/data')); //*regestering the api middleware
-
 
 //*make express responsive to requests
 app.listen(PORT, ()=>{
