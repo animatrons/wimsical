@@ -30,8 +30,6 @@ router.get('/:key', (req, res) => {
     data.getPost(key) 
         .then(post => {return res.send(post)})
         .catch(key => {return res.send('Oooops')})
-        .catch(err => {return res.json(err)})
-        // .catch(key => {return res.json(key)})
 });
 
 

@@ -1,4 +1,3 @@
-import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 import { useState, useEffect } from 'react';
 import { useForm } from '../hooks/useForm';
@@ -43,8 +42,6 @@ function GetIt() {
                 onChange={handleChange}/>
 
             {buttonState ? btn_unlocked:btn_locked}
-
-            {/* {(clicked & buttonState) ? (loading ? <Response class='response-normal' result='loading...'/> : <Response class='response-success-get' result={data}/>) : <Response class='response-normal' result='response'/>} */}
 
             {(clicked & buttonState) ? 
                 (loading ? 

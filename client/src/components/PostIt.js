@@ -11,7 +11,6 @@ function PostIt() {
     const [buttonState, setButtonState] = useState(false);
     const [inputValue, handleChange] = useForm({inputText: ''});
     const [toBePosted, setToBePosted] = useState('');
-    const [postSuccess, setPostSuccess] = useState(false);
 
     var {data, loading, err} = usePostFetch(toBePosted);
 
